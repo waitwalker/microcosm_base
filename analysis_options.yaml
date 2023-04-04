@@ -1,0 +1,89 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+analyzer:
+  exclude:
+    - build/**
+    - lib/generated/**
+    - lib/utils/pretty_printer.dart
+  errors:
+    avoid_print: error
+    # 文件使用小写下划线模式 Name source files using lowercase_with_underscores.
+    file_names: error
+    # 文件使用小写下划线模式 package source files using lowercase_with_underscores.
+    package_names: error
+    # 方法必须声明返回类型
+    always_declare_return_types: warning
+    # 不要给闭包的参数传null
+    null_closures: warning
+    #    避免相对路径导入，使用包绝对路径，不使用相对路径，避免重复引用和修改时候管连不上
+    always_use_package_imports: error
+    dead_code: warning
+    invalid_assignment: warning
+    # 返回值缺失
+    missing_return: warning
+    # 无效的表达式
+    unnecessary_statements: warning
+    #未初始化的变量，尽量提供类型
+    prefer_typing_uninitialized_variables: warning
+    # 没用的导入报警
+    unused_import: error
+    #避免使用new
+    unnecessary_new: error
+    #避免引用没必要的容器，避免没必要的层级
+    avoid_unnecessary_containers: error
+    # 避免声明变量不用
+    unused_local_variable: warning
+    #对于单独的代码块需要使用大括号隔离起来
+    curly_braces_in_flow_control_structures: warning
+
+linter:
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at
+  # https://dart-lang.github.io/linter/lints/index.html.
+  #
+  # Instead of disabling a lint rule for the entire project in the
+  # section below, it can also be suppressed for a single line of code
+  # or a specific dart file by using the `// ignore: name_of_lint` and
+  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
+  # producing the lint.
+  rules:
+    prefer_typing_uninitialized_variables: true
+    always_use_package_imports: true
+    prefer_const_constructors: false
+    #代码块最好换行到新行
+    always_put_control_body_on_new_line: true
+    file_names: true
+    package_names: true
+    #    使用Log.代替print
+    #    avoid_print: true
+    #Avoid using web-only libraries outside Flutter web plugin packages
+    avoid_web_libraries_in_flutter: true
+    # Avoid empty statements
+    empty_statements: true
+    # 避免空导入
+    implementation_imports: true
+    #可以使用foreach
+    avoid_function_literals_in_foreach_calls: true
+
+    constant_identifier_names: false
+    # 括号引用变量，括起来比较好区分范围
+    unnecessary_brace_in_string_interps: false
+
+    unnecessary_new: true
+    curly_braces_in_flow_control_structures: true
+
+    use_enums: true
+
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
